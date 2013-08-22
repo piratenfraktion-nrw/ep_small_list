@@ -16,7 +16,7 @@ exports.eejsBlock_indexWrapper = function (hook_name, args, cb) {
         })); } });
         padstring += '<tr>';
         padstring += '<td><a href="/p/' + item + '">' + item + '</a></td>';
-        padstring += '<td>' + padTimestamp + '</td>';
+        padstring += '<td>' + moment(padTimestamp).format() + '</td>';
         padstring += '</tr>';
         console.log("small_list: " + JSON.stringify(pad));
     });
