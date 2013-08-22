@@ -9,6 +9,9 @@ exports.eejsBlock_indexWrapper = function (hook_name, args, cb) {
     padstring += "<table>";
     pads.forEach(function(item){
         var pad = new Pad(item);
+        pad.init(null, function(err) { if(!err) { console.log(pad.getLastEdit(function(err, timestamp) {
+          console.log("small_list: " + timestamp);
+        })); } });
         padstring += '<tr>';
         padstring += '<td><a href="/p/' + item + '">' + item + '</a></td>';
         padstring += '<td>' + pad.getLastEdit(function(err, meta, stamp){ console.log("small_list: " + meta + ", " + stamp); }) + '</td>';
