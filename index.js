@@ -3,13 +3,13 @@ var moment = require('moment');
 
 exports.eejsBlock_indexWrapper = function (hook_name, args, cb) {
     var padstring = "<h3>List of pads</h3>";
-    var pads = padManager.listAllPads().padIDs;
+    var pads = padManager.listAllPads();
     pads = pads.sort();
     padstring += "<table>";
     pads.forEach(function(item){
         padstring += '<tr>';
-        padstring += '<td><a href="/p/' + item + '">' + item + '</a></td>';
-        padstring += '<td>' + moment(padManager.getLastEdited(item).lastEdited).format() + '</td>';
+        padstring += '<td><a href="/p/' + item.padID + '">' + item.padID + '</a></td>';
+        padstring += '<td>' + moment(item.getLastEdited()).format() + '</td>';
         padstring += '</tr>';
     });
     padstring += "</table>";
