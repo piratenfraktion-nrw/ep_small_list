@@ -13,7 +13,7 @@ exports.eejsBlock_indexWrapper = function (hook_name, args, cb) {
         padstring += '<td><a href="/p/' + item + '">' + item + '</a></td>';
         padstring += '<td>' + pad.getLastEdit(function(foo){ console.log("small_list: " + foo); }) + '</td>';
         padstring += '</tr>';
-        console.log("small_list: " + pad);
+        console.log("small_list: " + JSON.stringify(pad));
     });
     padstring += "</table>";
     args.content += padstring;
