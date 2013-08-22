@@ -6,7 +6,7 @@ exports.eejsBlock_indexWrapper = function (hook_name, args, cb) {
     var padstring = "<h3>List of pads</h3>";
     var pads = padManager.listAllPads().padIDs;
     pads = pads.sort();
-    padstring += "<table>";
+    padstring += "<table><thead><tr><th>Padname</th><th>Letzte Bearbeitung</th></tr></thead>";
     pads.forEach(function(item){
         var pad = new Pad(item);
         var padTimestamp;
