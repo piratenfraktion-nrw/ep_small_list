@@ -4,7 +4,7 @@ var moment = require('moment');
 exports.eejsBlock_indexWrapper = function (hook_name, args, cb) {
     var padstring = "<h3>List of pads</h3>";
     var pads = padManager.listAllPads();
-    pads = pads.sort();
+    //pads = pads.sort();
     padstring += "<table>";
     pads.forEach(function(item){
         padstring += '<tr>';
