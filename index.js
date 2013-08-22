@@ -12,10 +12,11 @@ exports.eejsBlock_indexWrapper = function (hook_name, args, cb) {
         var padTimestamp;
         pad.init(null, function(err) { if(!err) { console.log(pad.getLastEdit(function(err, timestamp) {
           console.log("small_list: " + timestamp);
+          padTimestamp = timestamp;
         })); } });
         padstring += '<tr>';
         padstring += '<td><a href="/p/' + item + '">' + item + '</a></td>';
-        padstring += '<td>' + pad.meta.timestamp + '</td>';
+        padstring += '<td>' + padTimestamp + '</td>';
         padstring += '</tr>';
         console.log("small_list: " + JSON.stringify(pad));
     });
