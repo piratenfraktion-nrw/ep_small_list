@@ -1,14 +1,19 @@
 var padManager = require('ep_etherpad-lite/node/db/PadManager');
+var moment = require('moment');
+
 exports.eejsBlock_indexWrapper = function (hook_name, args, cb) {
     var padstring = "<h3>List of pads</h3>";
     var pads = padManager.listAllPads().padIDs;
     pads = pads.sort();
-    padstring += "<ul>";
+    padstring += "<table>";
     pads.forEach(function(item){
-        padstring += '<li><a href="/p/' + item + '">' + item + '</a></li>';
+        padstring += '<tr>';
+        padstring += '<td><a href="/p/' + item + '">' + item + '</a></td>';
+        padstring += '<td>' + moment(padManager.getLastEdited(item).lastEdited).format() + '</td>';
+        padstring += '</tr>';
     });
-    padstring += "</ul>";
-    args.content += padstring
+    padstring += "</table>";
+    args.content += padstring;
 
     return cb();
-}
+};
