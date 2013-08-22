@@ -9,7 +9,7 @@ exports.eejsBlock_indexWrapper = function (hook_name, args, cb) {
     pads.forEach(function(item){
         padstring += '<tr>';
         padstring += '<td><a href="/p/' + item + '">' + item + '</a></td>';
-        //padstring += '<td>' + moment(padManager.getLastEdited(item).lastEdited).format() + '</td>';
+        padstring += '<td>' + moment(padManager.getPad(item).getLastEdit(cb)).format() + '</td>';
         padstring += '</tr>';
     });
     padstring += "</table>";
